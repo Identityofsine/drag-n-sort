@@ -1,6 +1,6 @@
 {
   "name": "drag-n-sort",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A React component designed to easily allow elements to be dragged and dropped within one container for sorting purposes.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -22,7 +22,7 @@
     "react",
     "sorter",
     "react-component",
-    "react-web",
+    "react-dom",
     "front-end",
     "typescript",
     "ui-element"
