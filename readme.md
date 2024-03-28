@@ -2,7 +2,7 @@
 
 `Drag-N-Sort` is a React DOM package designed to effortlessly add Drag and Drop functionality to both flex and grid containers, enabling innovative content sorting capabilities.
 
-![Drag-N-Sort Demo](https://eu-central.storage.cloudconvert.com/tasks/db832873-66c8-4761-9cef-c53479ecd94d/Screencast%20from%2003-28-2024%2007:46:51%20PM.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production/20240328/fra/s3/aws4_request&X-Amz-Date=20240328T195220Z&X-Amz-Expires=86400&X-Amz-Signature=0cdb83318b20c895afd329aeb3df6233c0ba5123e4489b307ac304c116e2bd71&X-Amz-SignedHeaders=host&response-content-disposition=attachment;%20filename=%22Screencast%20from%2003-28-2024%2007:46:51%20PM.gif%22&response-content-type=image/gif&x-id=GetObject)
+![Drag-N-Sort Demo](./img.gif)
 
 ---
 
