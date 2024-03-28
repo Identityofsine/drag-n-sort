@@ -5,20 +5,11 @@
 	"main": "./dist/cjs/index.js",
 	"module": "./dist/esm/index.js",
 	"types": "./dist/esm/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
-  },
   "scripts": {
 		"lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
-    "build": "node run build:esm && node run build:cjs",
+    "build": "npm run build:esm && npm run build:cjs",
 		"build:esm": "tsc",
-		"build:cjs": "tsc --module commonjs --outDir dist/cjs",
+		"build:cjs": "tsc --module commonjs --outDir dist/cjs"
   },
   "repository": {
     "type": "git",
