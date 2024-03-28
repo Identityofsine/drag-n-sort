@@ -10,6 +10,7 @@ export type DraggableProps = {
     section_id?: string;
     index?: number;
     drag_only_button?: boolean;
+    drag_button?: JSX.Element;
 };
 declare const Draggable: ({ parent_ref, section_id, drag_only_button, index, vertical, ...props }: DraggableProps) => import("react/jsx-runtime").JSX.Element;
 export default Draggable;

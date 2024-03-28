@@ -1,2 +1,2 @@
-import Draggable, { PlacementMarker } from './drgndrp';
-export { Draggable, PlacementMarker };
+import Draggable, { PlacementMarker, DraggableProps } from './drgndrp';
+export { Draggable, PlacementMarker, DraggableProps };

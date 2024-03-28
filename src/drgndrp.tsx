@@ -17,6 +17,7 @@ export type DraggableProps = {
 	section_id?: string,
 	index?: number
 	drag_only_button?: boolean
+	drag_button?: JSX.Element
 }
 
 function replaceAll(str: string, find: string, replace: string) {
@@ -201,9 +202,9 @@ const Draggable = ({ parent_ref, section_id = "", drag_only_button = false, inde
 			</div>
 
 			{drag_only_button &&
-				<div className="drag-button absolute top-0 right-0" onMouseDown={onMouseDown}>
-					<img src="/icons/move.svg" alt="drag" className="icon" draggable={false} />
-				</div>
+				(<div className="drag-button absolute top-0 right-0" onMouseDown={onMouseDown}>
+					{props.drag_button}
+				</div>)
 			}
 
 			<div ref={ghost_ref} className={`ghost absolute ${holding ? "active" : ""}`}>

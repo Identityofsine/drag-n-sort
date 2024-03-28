@@ -176,7 +176,7 @@ var Draggable = function (_a) {
     }
     return (_jsxs("div", { ref: container_ref, onMouseDown: function (e) { if (!drag_only_button)
             onMouseDown(e); }, className: "grabbable ".concat(drag_only_button ? 'button-only' : '', " id-grabbable-").concat(section_id ? section_id : "all", " relative"), children: [_jsx("div", { ref: ref, className: "relative", children: props.children }), drag_only_button &&
-                _jsx("div", { className: "drag-button absolute top-0 right-0", onMouseDown: onMouseDown, children: _jsx("img", { src: "/icons/move.svg", alt: "drag", className: "icon", draggable: false }) }), _jsx("div", { ref: ghost_ref, className: "ghost absolute ".concat(holding ? "active" : "") })] }));
+                props.drag_button, _jsx("div", { ref: ghost_ref, className: "ghost absolute ".concat(holding ? "active" : "") })] }));
 };
 export default Draggable;
 //# sourceMappingURL=drgndrp.js.map
