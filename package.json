@@ -1,0 +1,39 @@
+{
+  "name": "drag-n-sort",
+  "version": "1.0.0",
+  "description": "A React component designed to easily allow elements to be dragged and dropped within one container for sorting purposes.",
+  "main": "index.js",
+	"files":[
+		"dist" // This is the folder that will be published to npm
+	],
+  "exports": { // Setup exports with typing
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+		"build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Identityofsine/drag-n-sort.git"
+  },
+  "keywords": [
+    "react",
+    "sorter",
+    "react-component",
+    "react-web",
+    "front-end",
+    "ui-element"
+  ],
+  "author": "fofx.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Identityofsine/drag-n-sort/issues"
+  },
+  "homepage": "https://github.com/Identityofsine/drag-n-sort#readme",
+  "devDependencies": {
+    "typescript": "^5.4.3"
+  }
+}
