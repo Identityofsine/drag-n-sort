@@ -1,6 +1,6 @@
 'use client';
 import '../styles/draggable.scss'
-import { RefObject, useEffect, useRef, useState } from "react";
+import { ReactNode, RefObject, useEffect, useRef, useState } from "react";
 import React from 'react';
 
 type MousePos = {
@@ -10,14 +10,14 @@ type MousePos = {
 export type PlacementMarker = 'left' | 'right' | 'top' | 'bottom'
 
 export type DraggableProps = {
-	children: React.ReactNode,
+	children: ReactNode,
 	parent_ref: RefObject<HTMLElement>,
 	vertical?: boolean,
 	onDrop?: (index: number, position: PlacementMarker) => void
 	section_id?: string,
 	index?: number
 	drag_only_button?: boolean
-	drag_button?: JSX.Element
+	drag_button?: ReactNode
 }
 
 function replaceAll(str: string, find: string, replace: string) {
@@ -202,9 +202,9 @@ const Draggable = ({ parent_ref, section_id = "", drag_only_button = false, inde
 			</div>
 
 			{drag_only_button &&
-				(<div className="drag-button absolute top-0 right-0" onMouseDown={onMouseDown}>
+				<div className="drag-button absolute top-0 right-0" onMouseDown={onMouseDown}>
 					{props.drag_button}
-				</div>)
+				</div>
 			}
 
 			<div ref={ghost_ref} className={`ghost absolute ${holding ? "active" : ""}`}>
