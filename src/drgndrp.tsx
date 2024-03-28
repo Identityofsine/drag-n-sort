@@ -8,7 +8,7 @@ type MousePos = {
 }
 export type PlacementMarker = 'left' | 'right' | 'top' | 'bottom'
 
-type DraggableProps = {
+export type DraggableProps = {
 	children: React.ReactNode,
 	parent_ref: RefObject<HTMLElement>,
 	vertical?: boolean,
@@ -57,7 +57,7 @@ const Draggable = ({ parent_ref, section_id = "", drag_only_button = false, inde
 		}
 	}, [holding])
 
-	function onMouseDown(e: React.MouseEvent) {
+	function onMouseDown(_e: React.MouseEvent) {
 		interval_ref.current = setTimeout(() => {
 			document.body.style.cursor = "grabbing";
 			document.body.style.userSelect = "none";
@@ -69,7 +69,7 @@ const Draggable = ({ parent_ref, section_id = "", drag_only_button = false, inde
 		}, 125);
 	}
 
-	function onMouseUp(e: MouseEvent) {
+	function onMouseUp(_e: MouseEvent) {
 		clearTimeout(interval_ref.current);
 		setHolding(false);
 		document.body.style.cursor = "auto";
@@ -134,7 +134,7 @@ const Draggable = ({ parent_ref, section_id = "", drag_only_button = false, inde
 
 	function findNearestElement(): { element?: number, position: PlacementMarker } | undefined {
 
-		function getMinDistance(rect: DOMRect, buffer: number = 10, id: string = ""): [number, number, PlacementMarker] {
+		function getMinDistance(rect: DOMRect, buffer: number = 10): [number, number, PlacementMarker] {
 			const mouse_x = mouse_pos_ref.current.x;
 			const left_distance = Math.abs(rect.left - mouse_x);
 			const right_distance = Math.abs(rect.right - mouse_x);
@@ -170,7 +170,7 @@ const Draggable = ({ parent_ref, section_id = "", drag_only_button = false, inde
 				if (!child) continue;
 				if (!child.classList.contains(`id-grabbable-${section_id ? "" + section_id : "all"}`)) continue;
 				const rect = child.getBoundingClientRect();
-				const [distance_x, distance_y, dir] = getMinDistance(rect);
+				const [_distance_x, _distance_y, dir] = getMinDistance(rect);
 				const point_distance = pointDistance(mouse_pos_ref.current.x, mouse_pos_ref.current.y, (rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2);
 
 				if (point_distance < closest_distance) {
