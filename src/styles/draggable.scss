@@ -1,0 +1,100 @@
+.close-left,
+.close-right,
+.close-top,
+.close-bottom {
+	position: relative;
+}
+
+.close-left::before,
+.close-right::before,
+.close-top::before,
+.close-bottom::before {
+	content: '';
+	position: absolute;
+	display: block;
+	border-radius: 0.15rem;
+	background: #191919;
+}
+
+.close-left::before,
+.close-right::before {
+	width: .05rem;
+	height: 100%;
+	top: 0;
+}
+
+.close-top::before,
+.close-bottom::before {
+	width: 100%;
+	height: 0.05rem;
+	left: 0;
+}
+
+.close-top::before {
+	top: -.25rem;
+}
+
+.close-bottom::before {
+	bottom: -1.5rem;
+}
+
+.close-left::before {
+	left: -.2rem;
+}
+
+.close-right::before {
+	right: -.2rem;
+}
+
+
+.grabbable {
+	cursor: grab;
+	cursor: -moz-grab;
+	cursor: -webkit-grab;
+
+	&.button-only {
+		cursor: default;
+	}
+
+	.ghost {
+		opacity: .25;
+		height: 100%;
+		width: 100%;
+		border: 0.0536rem dashed #000;
+		box-sizing: border-box;
+		opacity: 0;
+		z-index: -100;
+
+		@keyframes loading {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: .35;
+			}
+		}
+
+		&.active {
+			animation: loading 100ms;
+			animation-fill-mode: forwards;
+			z-index: 100;
+		}
+	}
+
+	.drag-button {
+		position: absolute;
+		top: -.5rem;
+		right: 0;
+		cursor: pointer;
+
+		img {
+			$size : 1rem;
+			width: $size;
+			height: $size;
+			object-fit: cover;
+		}
+	}
+
+
+}
