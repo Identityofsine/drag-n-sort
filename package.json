@@ -13,7 +13,10 @@
     }
   },
   "scripts": {
-    "build": "tsc"
+		"lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "build": "node run build:esm && node run build:cjs",
+		"build:esm": "tsc",
+		"build:cjs": "tsc --module commonjs --outDir dist/cjs",
   },
   "repository": {
     "type": "git",

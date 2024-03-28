@@ -1,6 +1,7 @@
 'use client';
 import '../styles/draggable.scss'
 import { RefObject, useEffect, useRef, useState } from "react";
+import React from 'react';
 
 type MousePos = {
 	x: number,

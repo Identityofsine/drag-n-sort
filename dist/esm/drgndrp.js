@@ -1,36 +1,24 @@
 'use client';
-"use strict";
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var jsx_runtime_1 = require("react/jsx-runtime");
-require("../styles/draggable.scss");
-var react_1 = require("react");
+import { __rest } from "tslib";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import '../styles/draggable.scss';
+import { useEffect, useRef, useState } from "react";
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, 'g'), replace);
 }
 var Draggable = function (_a) {
     var parent_ref = _a.parent_ref, _b = _a.section_id, section_id = _b === void 0 ? "" : _b, _c = _a.drag_only_button, drag_only_button = _c === void 0 ? false : _c, index = _a.index, _d = _a.vertical, vertical = _d === void 0 ? false : _d, props = __rest(_a, ["parent_ref", "section_id", "drag_only_button", "index", "vertical"]);
-    var _e = (0, react_1.useState)(false), holding = _e[0], setHolding = _e[1];
-    var ref = (0, react_1.useRef)(null);
-    var container_ref = (0, react_1.useRef)(null);
-    var mouse_pos_ref = (0, react_1.useRef)({ x: 0, y: 0 });
-    var ghost_ref = (0, react_1.useRef)(null);
-    var animation_ref = (0, react_1.useRef)(0);
-    var child_ref = (0, react_1.useRef)();
-    var position_ref = (0, react_1.useRef)(vertical ? 'top' : 'left');
-    var interval_ref = (0, react_1.useRef)();
+    var _f = useState(false), holding = _f[0], setHolding = _f[1];
+    var ref = useRef(null);
+    var container_ref = useRef(null);
+    var mouse_pos_ref = useRef({ x: 0, y: 0 });
+    var ghost_ref = useRef(null);
+    var animation_ref = useRef(0);
+    var child_ref = useRef();
+    var position_ref = useRef(vertical ? 'top' : 'left');
+    var interval_ref = useRef();
     section_id = replaceAll(section_id, " ", "_").trim();
-    (0, react_1.useEffect)(function () {
+    useEffect(function () {
         var _a;
         if (holding) {
             (_a = ref.current) === null || _a === void 0 ? void 0 : _a.classList.remove('relative');
@@ -50,7 +38,7 @@ var Draggable = function (_a) {
             cancelAnimationFrame(animation_ref.current);
         };
     }, [holding]);
-    function onMouseDown(e) {
+    function onMouseDown(_e) {
         interval_ref.current = setTimeout(function () {
             document.body.style.cursor = "grabbing";
             document.body.style.userSelect = "none";
@@ -62,7 +50,7 @@ var Draggable = function (_a) {
             }
         }, 125);
     }
-    function onMouseUp(e) {
+    function onMouseUp(_e) {
         clearTimeout(interval_ref.current);
         setHolding(false);
         document.body.style.cursor = "auto";
@@ -125,9 +113,8 @@ var Draggable = function (_a) {
     }
     function findNearestElement() {
         var _a;
-        function getMinDistance(rect, buffer, id) {
+        function getMinDistance(rect, buffer) {
             if (buffer === void 0) { buffer = 10; }
-            if (id === void 0) { id = ""; }
             var mouse_x = mouse_pos_ref.current.x;
             var left_distance = Math.abs(rect.left - mouse_x);
             var right_distance = Math.abs(rect.right - mouse_x);
@@ -166,7 +153,7 @@ var Draggable = function (_a) {
                 if (!child.classList.contains("id-grabbable-".concat(section_id ? "" + section_id : "all")))
                     continue;
                 var rect = child.getBoundingClientRect();
-                var _b = getMinDistance(rect), distance_x = _b[0], distance_y = _b[1], dir = _b[2];
+                var _b = getMinDistance(rect), _distance_x = _b[0], _distance_y = _b[1], dir = _b[2];
                 var point_distance = pointDistance(mouse_pos_ref.current.x, mouse_pos_ref.current.y, (rect.left + rect.right) / 2, (rect.top + rect.bottom) / 2);
                 if (point_distance < closest_distance) {
                     closest = i;
@@ -187,8 +174,9 @@ var Draggable = function (_a) {
             return undefined;
         }
     }
-    return ((0, jsx_runtime_1.jsxs)("div", { ref: container_ref, onMouseDown: function (e) { if (!drag_only_button)
-            onMouseDown(e); }, className: "grabbable ".concat(drag_only_button ? 'button-only' : '', " id-grabbable-").concat(section_id ? section_id : "all", " relative"), children: [(0, jsx_runtime_1.jsx)("div", { ref: ref, className: "relative", children: props.children }), drag_only_button &&
-                (0, jsx_runtime_1.jsx)("div", { className: "drag-button absolute top-0 right-0", onMouseDown: onMouseDown, children: (0, jsx_runtime_1.jsx)("img", { src: "/icons/move.svg", alt: "drag", className: "icon", draggable: false }) }), (0, jsx_runtime_1.jsx)("div", { ref: ghost_ref, className: "ghost absolute ".concat(holding ? "active" : "") })] }));
+    return (_jsxs("div", { ref: container_ref, onMouseDown: function (e) { if (!drag_only_button)
+            onMouseDown(e); }, className: "grabbable ".concat(drag_only_button ? 'button-only' : '', " id-grabbable-").concat(section_id ? section_id : "all", " relative"), children: [_jsx("div", { ref: ref, className: "relative", children: props.children }), drag_only_button &&
+                _jsx("div", { className: "drag-button absolute top-0 right-0", onMouseDown: onMouseDown, children: _jsx("img", { src: "/icons/move.svg", alt: "drag", className: "icon", draggable: false }) }), _jsx("div", { ref: ghost_ref, className: "ghost absolute ".concat(holding ? "active" : "") })] }));
 };
-exports.default = Draggable;
+export default Draggable;
+//# sourceMappingURL=drgndrp.js.map

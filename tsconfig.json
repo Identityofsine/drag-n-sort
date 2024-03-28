@@ -1,9 +1,9 @@
 {
 	"include": ["src"], /* Include only the src directory */
-	"exclude": ["node_modules", "dist"] /* Exclude the node_modules directory */
+	"exclude": ["node_modules", "dist"], /* Exclude the node_modules directory */
 	"compilerOptions": {
 		"module": "esnext",
-		"lib": ["dom", "esnext", "node"],
+		"lib": ["dom", "esnext", "es2021"],
 		"importHelpers": true,
 		"declaration": true,
 		"sourceMap": true,
