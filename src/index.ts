@@ -1,4 +1,3 @@
 import Draggable, { PlacementMarker } from './drgndrp'
 
-export default Draggable;
-export { PlacementMarker };
+export { Draggable, PlacementMarker };
