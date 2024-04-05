@@ -197,17 +197,17 @@ const Draggable = ({ parent_ref, section_id = "", drag_only_button = false, inde
 
 	return (
 		<div ref={container_ref} onMouseDown={(e) => { if (!drag_only_button) onMouseDown(e) }} className={`grabbable ${drag_only_button ? 'button-only' : ''} id-grabbable-${section_id ? section_id : "all"} relative`}>
-			<div ref={ref} className="relative">
+			<div ref={ref} style={{ position: 'relative' }}>
 				{props.children}
 			</div>
 
 			{drag_only_button &&
-				<div className="drag-button absolute top-0 right-0" onMouseDown={onMouseDown}>
+				<div className="drag-button" onMouseDown={onMouseDown}>
 					{props.drag_button}
 				</div>
 			}
 
-			<div ref={ghost_ref} className={`ghost absolute ${holding ? "active" : ""}`}>
+			<div ref={ghost_ref} className={`ghost ${holding ? "active" : ""}`}>
 			</div>
 		</div >
 	)
