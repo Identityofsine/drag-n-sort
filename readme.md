@@ -145,9 +145,6 @@ export type DraggableProps = {
 - Right-clicking may cause tracking issues.
 - Drag button styling is not adjustable (*planned for future updates*).
 
-
----
-
 # Links
 - [GitHub](https://github.com/Identityofsine/drag-n-sort)
 - [npm](https://www.npmjs.com/package/drag-n-sort)
